@@ -10,6 +10,7 @@
   },
   "name": "movie-api",
   "description": "Simple Movie API",
+  "description": "Simple API that retrieves movie titles and details from Film maker Stanley Kubrick",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
