@@ -1,13 +1,13 @@
 # movie-api
 This project creates a simple API focused in retrieving movie titles and details.
 
-The API is created with node.js.
+The API is created with node.js and the Express Framework.
 
-The modules used are:
+In order to install your own server you need to import the following modules:
 
-Build-In Modules:
--Http
--fs
--url
+-Express
+-Morgan
+
+
 
 
