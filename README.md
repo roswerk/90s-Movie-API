@@ -8,6 +8,17 @@ In order to install your own server you need to import the following modules:
 -Express
 -Morgan
 
+Installation:
+
+#Requirements:
+-Node.js
+-npm
+-The modules mentiones above 
+
+
+#Run the following command on your terminal on your cloned repository:
+
+$ npm install package.json
 
 
 
