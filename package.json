@@ -8,8 +8,7 @@
   "devDependencies": {
     "eslint": "^7.23.0"
   },
-  "name": "movie-api",
-  "description": "Simple Movie API",
+  "name": "Kubricking-API",
   "description": "Simple API that retrieves movie titles and details from Film maker Stanley Kubrick",
   "version": "1.0.0",
   "main": "index.js",
