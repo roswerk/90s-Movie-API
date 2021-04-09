@@ -1,31 +1,31 @@
 {
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parse": "^0.1.0",
     "express": "^4.17.1",
-    "lodash": "^4.17.21"
+    "uuid": "^8.3.2"
   },
-  "devDependencies": {
-    "eslint": "^7.23.0"
-  },
-  "name": "movie-api",
-  "description": "Simple Movie API",
+  "name": "stanley-kubricks-api",
   "version": "1.0.0",
+  "description": "This project creates a simple API focused in retrieving movie titles and details from Film maker Stanley Kubrick.",
   "main": "index.js",
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/roswerk/movie-api.git"
+    "url": "git+https://github.com/roswerk/Kubricking-API.git"
   },
   "keywords": [
-    "MovieApi"
+    "Stanley",
+    "Kubrick",
+    "API"
   ],
   "author": "Max Rosales",
-  "license": "SEE LICENSE IN LICENSE FILE",
+  "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/roswerk/movie-api/issues"
+    "url": "https://github.com/roswerk/Kubricking-API/issues"
   },
-  "homepage": "https://github.com/roswerk/movie-api#readme"
+  "homepage": "https://github.com/roswerk/Kubricking-API#readme"
 }
-
