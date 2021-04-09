@@ -1,0 +1,23 @@
+#Kubricking-API 
+
+This project creates a simple API focused in Film maker Stanley Kubrick.
+
+The API is created with node.js and the Express framework.
+
+In order to install your own server you need to import the following module:
+
+-Express 
+
+Additional (dependent) modules are: 
+
+-UUID
+-Body-Parser
+
+After installing the modules and dependencies, you can initiate the server with the following command:
+
+$ npm start
+
+The listened Port is 8080
+
+You can use the API to retrieve, add, update, and delete data based on Film Maker Stanley Kubrick. 
+You can check the documentation.html for more details on how to use the API.
