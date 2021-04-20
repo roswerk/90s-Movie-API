@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <title>90's Movies API</title>
+  </head>
+  <body>
+<h1 class="text-center display-6">Documentation on the 90's Movies API</h1>
+<br>
+<br>
+    <table class="table table-dark table-striped table-hover align-middle" >
+      <thead>
+        <tr>
+          <th scope="col" class="col col-3">Business Logic</th>
+          <th scope="col">URL</th>
+          <th scope="col">HTTP Method</th>
+          <th scope="col" class="col col-2">Request Body data Format</th>
+          <th scope="col">Response Body data Format</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+
+        <td>Retrieve a list of ALL movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td> - </td>
+        <td>{
+        "title": "Eyes Wide Shut", <br>
+        "year": "1999", <br>
+        "gender": "Thriller"
+    }</td>
+        </tr>
+
+        <tr>
+
+          <td>Retrieve data about a single movie by TITLE</td>
+          <td>/movies/:title</td>
+          <td>GET</td>
+          <td> - </td>
+          <td>{
+    "title": "Lolita", <br>
+    "year": "1962", <br>
+    "gender": "Drama"
+   }</td>
+        </tr>
+
+        <tr>
+
+          <td>Return data about a genre (description) by name (e.g., “Drama”)</td>
+          <td>/genre/:name</td>
+          <td>GET</td>
+          <td> - </td>
+          <td>
+            {
+              "_id": 2, <br>
+              "name": "Drama",<br>
+              "description": "The drama genre ..."
+          }
+            </td>
+        </tr>
+
+        <tr>
+
+          <td>Return data about a director (bio, birth year, death year) by name</td>
+          <td>/directors/:name</td>
+          <td>GET</td>
+          <td> - </td>
+          <td>{
+            {
+                "_id": 4, <br>
+                "name": "James Cameron",<br>
+                "bio": "James Francis Cameron was born ...",
+                "placeOfBirth": "Kapuskasing, Ontario, Canada",<br>
+                "birthDate": "1954-08-16T00:00:00.000Z"
+            }
+   }</td>
+        </tr>
+
+        <tr>
+
+          <td>Allow new users to register</td>
+          <td>/users/add</td>
+          <td>POST</td>
+          <td>{ userName: -REQUIRED- <br>
+             password: -REQUIRED- <br>
+             email: -REQUIRED- <br>
+             placeOfBirth: "", <br>
+             favoriteMovies: ""
+          }</td>
+          <td> - </td>
+        </tr>
+
+        <tr>
+
+          <td>Allow users to update their user info by userName</td>
+          <td>/user/:userName</td>
+          <td>PUT</td>
+          <td>{ userName: -REQUIRED- <br>
+             password: -REQUIRED- <br>
+             email: -REQUIRED- <br>
+             placeOfBirth: -REQUIRED-
+           }
+           </td>
+          <td> - </td>
+        </tr>
+
+        <tr>
+
+          <td>Allow users to add a movie to their list of favorites by userName</td>
+          <td>/users/:userName/favMovies/:favoriteMovies</td>
+          <td>POST</td>
+          <td> - </td>
+          <td> - </td>
+        </tr>
+
+        <tr>
+
+          <td>Allow users to remove a movie from their list of favorites</td>
+          <td>/users/:userName/Movies/:favoriteMovies</td>
+          <td>DELETE</td>
+          <td> - </td>
+          <td> - </td>
+        </tr>
+
+        <tr>
+
+          <td>Allow existing users to deregister</td>
+          <td>/users/delete/:userName</td>
+          <td>DELETE</td>
+          <td> - </td>
+          <td>_USER_ was deleted.</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+<div class="text-center">
+<h5 class="text-center">For any additional questions, please visit: </h5>
+<a href="https://github.com/roswerk/90s-Movie-API" target="_blank" >GitHub</a> <br>
+<a href="mailto:maxrowk@gmail.com?subject=Im%20writing%20about%20your%2090s%20Movie%20API&body=Hi,%20my%20name%20is%20...%20and%20i%20need%20help%20with/%20want%20to%20report%20..." >Contact me Directly</a>
+</div>
+  </body>
+</html>
