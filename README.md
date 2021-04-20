@@ -21,4 +21,4 @@ $ npm start
 The listened Port is 8080
 
 You can use the API to retrieve, add, update, and delete data.
-You can check the documentation.html for more details on how to use the API.
+You can check the documentation.html for more details on how to use the API on /public/documentation.html
