@@ -8,7 +8,7 @@ require("./passport"); //Local passport file
 
 let generateJWTToken = (user) => {
   return jwt.sign(user, jwtSecret, {
-    subject: user.Username, //This is the username
+    subject: user.userName, //This is the username
     //we're encoding in the JWT
     expiresIn: "7d", //This specifies that
     //the token will expire in 7 days

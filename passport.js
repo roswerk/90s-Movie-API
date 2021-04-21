@@ -3,18 +3,18 @@ localStrategy = require("passport-local").Strategy,
 models = require("./models.js"),
 passportJWT = require("passport-jwt");
 
-let Users = models.User,
+let User = models.User,
 JWTStrategy = passportJWT.Strategy,
 ExtractJWT = passportJWT.ExtractJwt;
 
 // Basic HTTP Authenitication
-passport.use(new LocalStrategy({
-  usernameField: "Username",
-  passwordField: "Password"
+passport.use(new localStrategy({
+  usernameField: "userName",
+  passwordField: "password"
 }, (username, password, callback) => {
   console.log(username + " " + password);
   // Check if username is found in DB
-  Users.findOne({Username: username}, (error, user) =>{
+  User.findOne({userName: username}, (error, user) =>{
   // Callback error message
     if(error){
       console.log(error);
@@ -36,7 +36,7 @@ passport.use(new JWTStrategy({
   // SecretKey
   secretOrKey: "your_jwt_secret"
 }, (jwtPayload, callback) => {
-  return Users.findById(jwtPayload._id)
+  return User.findById(jwtPayload._id)
   .then((user) => {
     return callback(null, user);
   })
