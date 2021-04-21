@@ -2,19 +2,24 @@ const express = require("express"),
 bodyParser = require("body-parser"),
 mongoose = require("mongoose"),
 models = require("./models.js"),
-morgan = require("morgan");
+morgan = require("morgan"),
+passport = require("passport");
+require("./passport")
 
 mongoose.connect('mongodb://localhost:27017/Movies', {useNewUrlParser: true, useUnifiedTopology: true});
 
 const app = express();
 app.use(bodyParser.json());
 
+// Import auth.js
+let auth = require("./auth")(app);
+
 const Movie = models.Movie;
 const User = models.User;
 
 // 1 - RETURN A LIST OF ALL MOVIES
 // WORKS - Correct and Fail proved way
-app.get("/movies", (req, res) => {
+app.get("/movies", passport.authenticate("jwt", {session: false}), (req, res) => {
   Movie.find().then((movies) => {
     res.status(200).json(movies);
   })
