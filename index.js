@@ -32,7 +32,7 @@ app.get("/movies", passport.authenticate("jwt", {session: false}), (req, res) =>
 // 2 - RETURN DESCRIPTION, GENRE, DIRECTOR, IMAGE URL, FEATURES
 // ABOUT A SINGLE MOVIE BY **TITLE**
 // WORKS
-app.get("/movies/:title", (req, res) => {
+app.get("/movies/:title", passport.authenticate("jwt", {session: false}), (req, res) => {
   Movie.findOne({title: req.params.title})
   .then((movie) => {
     res.json(movie);
@@ -46,7 +46,7 @@ app.get("/movies/:title", (req, res) => {
 
 // 3 - RETURN DATA ABOUT A GENRE
 // WORKS
-app.get("/genre/:name", (req, res) => {
+app.get("/genre/:name", passport.authenticate("jwt", {session: false}), (req, res) => {
   Movie.findOne({"genre.name": req.params.name})
   .then((movie) => {
     res.json(movie.genre);
@@ -61,7 +61,7 @@ app.get("/genre/:name", (req, res) => {
 
 // 4 - RETURN **ALL** DATA ABOUT A DIRECTOR
 // WORKS
-app.get("/directors/:name", (req, res) => {
+app.get("/directors/:name", passport.authenticate("jwt", {session: false}), (req, res) => {
   Movie.findOne({"director.name": req.params.name})
   .then((movie) => {
     res.json(movie.director);
@@ -74,11 +74,11 @@ app.get("/directors/:name", (req, res) => {
 
 // 5 - ALLOW USERS TO REGISTER
 // WORKS
-app.post("/users/add", (req, res) => {
+app.post("/users/add", passport.authenticate("jwt", {session: false}), (req, res) => {
 User.findOne({userName: req.body.userName})
 .then((user) => {
   if (user){
-    return res.status(400).send("The username " + req.body.Username + " already exist. Please choose another username.");
+    return res.status(400).send("The username " + req.body.userName + " already exist. Please choose another username.");
   } else{
     User.create({
       userName: req.body.userName,
@@ -99,7 +99,7 @@ User.findOne({userName: req.body.userName})
 
 // 6 - ALLOW USERS TO UPDATE THEIR INFO
 // WORKS
-app.put("/user/:userName", (req, res) => {
+app.put("/user/:userName", passport.authenticate("jwt", {session: false}), (req, res) => {
   User.findOneAndUpdate({userName: req.params.userName},
     {$set:{
       userName: req.body.userName,
@@ -121,7 +121,7 @@ app.put("/user/:userName", (req, res) => {
 
 // 7 - ALLOW USERS TO ADD A MOVIE TO THEIR LIST OF FAVORITES
 // WORKS
-app.post("/users/:userName/favMovies/:favoriteMovies", (req, res) =>{
+app.post("/users/:userName/favMovies/:favoriteMovies", passport.authenticate("jwt", {session: false}), (req, res) =>{
   User.findOneAndUpdate({userName: req.params.userName},
     {$push: {favoriteMovies: req.params.favoriteMovies}
   },
@@ -138,7 +138,7 @@ app.post("/users/:userName/favMovies/:favoriteMovies", (req, res) =>{
 
 // 8 - ALLOW USERS TO REMOVE A MOVIE FROM THEIR LIST OF FAVORITES
 // WORKS
-app.delete("/users/:userName/Movies/:favoriteMovies", (req, res) =>{
+app.delete("/users/:userName/Movies/:favoriteMovies", passport.authenticate("jwt", {session: false}), (req, res) =>{
   User.findOneAndUpdate({userName: req.params.userName}, {
     $pull: {favoriteMovies: req.params.favoriteMovies}
   },
@@ -155,7 +155,7 @@ app.delete("/users/:userName/Movies/:favoriteMovies", (req, res) =>{
 
 // 9 - ALLOW EXISTING USERS TO DEREGISTER
 // WORKS
-app.delete("/users/delete/:userName", (req, res) => {
+app.delete("/users/delete/:userName", passport.authenticate("jwt", {session: false}), (req, res) => {
   User.findOneAndRemove({userName: req.params.userName})
   .then((user) => {
     if(!user){
