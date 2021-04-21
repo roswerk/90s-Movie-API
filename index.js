@@ -16,21 +16,13 @@ const User = models.User;
 // WORKS - Correct and Fail proved way
 app.get("/movies", (req, res) => {
   Movie.find().then((movies) => {
-    res.status(201).json(movies);
+    res.status(200).json(movies);
   })
   .catch((err) =>{
     console.log(err);
     res.status(500).send("Error: " + err);
   });
 });
-
-// Shorter and not failed prove way
-
-// app.get("/movies", (req, res) =>{
-//   movie.find().then((movies) => {
-//     res.json(movies)
-//   });
-// });
 
 // 2 - RETURN DESCRIPTION, GENRE, DIRECTOR, IMAGE URL, FEATURES
 // ABOUT A SINGLE MOVIE BY **TITLE**
