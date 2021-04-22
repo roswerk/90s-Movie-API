@@ -12,7 +12,7 @@ passport.use(new localStrategy({
   usernameField: "userName",
   passwordField: "password"
 }, (username, password, callback) => {
-  console.log(username + " " + password);
+  console.log(username);
   // Check if username is found in DB
   User.findOne({userName: username}, (error, user) =>{
   // Callback error message
