@@ -6,15 +6,15 @@ This project creates a simple API focused in top 90's films.
 
 Language 
 
-‘’’Javascript’’’
+```Javascript```
 
 Server Enviorment
 
-‘’’Node.js ‘’’
+```Node.js```
 
 Framework  
 
-‘’’Express’’’
+```Express```
 
 DataBase
-‘’’MongoDB’’’ 
+```MongoDB```
