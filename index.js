@@ -9,8 +9,7 @@ require("./helpers/passport.js")
 
 // Automaticating Documentation with Swagger
 const swaggerUi = require('swagger-ui-express')
-const swaggerFile = require('./swagger_output.json')
-
+const swaggerFile = require('./public/swagger_output.json')
 
 mongoose.connect('mongodb://localhost:27017/Movies', {useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -37,6 +36,7 @@ app.get("/movies", passport.authenticate("jwt", {session: false}), (req, res) =>
     res.status(500).send("Error: " + err);
   });
 });
+
 
 // 2 - RETURN DESCRIPTION, GENRE, DIRECTOR, IMAGE URL, FEATURES
 // ABOUT A SINGLE MOVIE BY **TITLE**
@@ -67,7 +67,6 @@ app.get("/genre/:name", passport.authenticate("jwt", {session: false}), (req, re
 })
 
 
-
 // 4 - RETURN **ALL** DATA ABOUT A DIRECTOR
 // WORKS
 app.get("/directors/:name", passport.authenticate("jwt", {session: false}), (req, res) => {
@@ -80,6 +79,7 @@ app.get("/directors/:name", passport.authenticate("jwt", {session: false}), (req
     res.status(500).send("Error: " + err);
   });
 });
+
 
 // 5 - ALLOW USERS TO REGISTER
 // WORKS
@@ -105,6 +105,7 @@ User.findOne({userName: req.body.userName})
   }
 })
 });
+
 
 // 6 - ALLOW USERS TO UPDATE THEIR INFO
 // WORKS
@@ -145,6 +146,7 @@ app.post("/users/:userName/favMovies/:favoriteMovies", passport.authenticate("jw
   });
 });
 
+
 // 8 - ALLOW USERS TO REMOVE A MOVIE FROM THEIR LIST OF FAVORITES
 // WORKS
 app.delete("/users/:userName/Movies/:favoriteMovies", passport.authenticate("jwt", {session: false}), (req, res) =>{
@@ -161,6 +163,7 @@ app.delete("/users/:userName/Movies/:favoriteMovies", passport.authenticate("jwt
     }
   });
 });
+
 
 // 9 - ALLOW EXISTING USERS TO DEREGISTER
 // WORKS
@@ -179,8 +182,6 @@ app.delete("/users/delete/:userName", passport.authenticate("jwt", {session: fal
 app.get("/documentation", (req, res) =>{
   res.sendFile(path.join(__dirname +"/public/documentation.html"));
 })
-
-
 
 
 // DYNAMIC PORT
