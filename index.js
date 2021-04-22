@@ -1,10 +1,10 @@
 const express = require("express"),
 bodyParser = require("body-parser"),
 mongoose = require("mongoose"),
-models = require("./models.js"),
+models = require("./database/models.js"),
 morgan = require("morgan"),
 passport = require("passport");
-require("./passport")
+require("./helpers/passport.js")
 
 mongoose.connect('mongodb://localhost:27017/Movies', {useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Import auth.js
-let auth = require("./auth")(app);
+let auth = require("./middlewares/auth.js")(app);
 
 const Movie = models.Movie;
 const User = models.User;
