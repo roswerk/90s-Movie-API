@@ -4,6 +4,7 @@ mongoose = require("mongoose"),
 models = require("./database/models.js"),
 morgan = require("morgan"),
 passport = require("passport");
+var path = require('path');
 require("./helpers/passport.js")
 
 // Automaticating Documentation with Swagger
@@ -174,6 +175,10 @@ app.delete("/users/delete/:userName", passport.authenticate("jwt", {session: fal
   });
 });
 
+
+app.get("/documentation", (req, res) =>{
+  res.sendFile(path.join(__dirname +"/public/documentation.html"));
+})
 
 
 
