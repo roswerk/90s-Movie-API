@@ -1,6 +1,22 @@
-## 90s-Movie-API
+# 90s-Movie-API
 
 This project creates a simple API focused in top 90's films.
+
+
+### API endpoints
+
+Business Logic | URL          | HTTP Method   | Request Body data Format | Response Body data Format
+------------ | -------------  | ------------- | ------------- | -------------
+Retrieve a list of ALL movies | 	/movies | 	GET | 	- | { "title": "Eyes Wide Shut","year": "1999","gender": "Thriller" }
+Retrieve data about a single movie by TITLE	 | 	/movies/:title | GET | - | { "title": "Lolita","year": "1962","gender": "Drama" }
+Return data about a genre (description) by name (e.g., “Drama”) | /genre/:name | GET | - | { "_id": 2,"name": "Drama","description": "The drama genre ..." }
+Return data about a director (bio, birth year, death year) by name | /directors/:name | GET | - | { { "_id": 4,"name": "James Cameron","bio": "James Francis Cameron was born ...", "placeOfBirth": "Kapuskasing, Ontario, Canada","birthDate": "1954-08-16T00:00:00.000Z" } }
+Allow new users to register | /users/add | POST | { userName: -REQUIRED-password: -REQUIRED- email: -REQUIRED-placeOfBirth: "",favoriteMovies: "" } | - 
+Allow users to update their user info by userName | /user/:userName | PUT | { userName: -REQUIRED- password: -REQUIRED- email: -REQUIRED- placeOfBirth: -REQUIRED- } | -
+Allow users to add a movie to their list of favorites by userName | 	/users/:userName/favMovies/:favoriteMovies | POST | - | - 
+Allow users to remove a movie from their list of favorites | /users/:userName/Movies/:favoriteMovies | DELETE | - | - 
+Allow existing users to deregister | /users/delete/:userName | 	DELETE | - | _USER_ was deleted.
+
 
 ## Tools Used
 
@@ -46,3 +62,4 @@ Please follow the steps to [install MongoDB](https://docs.mongodb.com/manual/tut
 ```npm index.js``` 
 or 
 ```npm start```
+
