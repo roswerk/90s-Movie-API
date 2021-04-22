@@ -6,10 +6,18 @@ morgan = require("morgan"),
 passport = require("passport");
 require("./helpers/passport.js")
 
+// Automaticating Documentation with Swagger
+const swaggerUi = require('swagger-ui-express')
+const swaggerFile = require('./swagger_output.json')
+
+
 mongoose.connect('mongodb://localhost:27017/Movies', {useNewUrlParser: true, useUnifiedTopology: true});
 
 const app = express();
 app.use(bodyParser.json());
+
+// Automaticating Documentation with Swagger
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 // Import auth.js
 let auth = require("./middlewares/auth.js")(app);
