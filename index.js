@@ -230,6 +230,6 @@ app.get("/documentation", (req, res) =>{
 
 // DYNAMIC PORT
 const port = process.env.port || 8080;
-app.listen(port, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log("The Server is running on Port: " + port)
 });
