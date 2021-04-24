@@ -4,7 +4,11 @@ mongoose = require("mongoose"),
 models = require("./database/models.js"),
 morgan = require("morgan"),
 passport = require("passport"),
-cors = require('cors');
+cors = require('cors'),
+dotenv = require("dotenv");
+
+// ENV config for Environment Variables
+dotenv.config();
 
 const { check, validationResult } = require('express-validator');
 var path = require('path');
