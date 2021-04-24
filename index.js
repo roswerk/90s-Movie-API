@@ -15,8 +15,11 @@ require("./helpers/passport.js")
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./public/swagger_output.json')
 
-// Linking DataBase
-mongoose.connect('mongodb://localhost:27017/Movies', {useNewUrlParser: true, useUnifiedTopology: true});
+// Linking LOCAL DataBase
+// mongoose.connect('mongodb://localhost:27017/Movies', {useNewUrlParser: true, useUnifiedTopology: true});
+
+// Linking ONLINE DataBase
+mongoose.connect(process.env.CONNECTION_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 // Creating APP
 const app = express();
