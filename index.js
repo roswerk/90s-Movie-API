@@ -62,6 +62,12 @@ app.use(cors({
 const Movie = models.Movie;
 const User = models.User;
 
+// Endpoint 0 - Welcome message
+
+app.get("/", (req, res) => {
+  res.send("Welcome to the 90s Movies API. Please check the /documentation for a more accurate description on how to use the API. Enjoy!")
+});
+
 //EndPoint 1 - RETURN A LIST OF ALL MOVIES
 
 app.get("/movies", passport.authenticate("jwt", {session: false}), (req, res) => {
