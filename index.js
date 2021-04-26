@@ -25,7 +25,11 @@ const swaggerFile = require('./public/swagger_output.json')
 // mongoose.connect('mongodb://localhost:27017/Movies', {useNewUrlParser: true, useUnifiedTopology: true});
 
 // Linking ONLINE DataBase
-mongoose.connect(process.env.CONNECTION_URI, {useNewUrlParser: true, useUnifiedTopology: true}, ssl: {require: true, /rejectUnauthorized: false});
+mongoose.connect(process.env.CONNECTION_URI, {
+useNewUrlParser: true,
+useUnifiedTopology: true,
+useFindAndModify: false,
+});
 
 // Creating APP
 const app = express();
