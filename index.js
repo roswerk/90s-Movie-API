@@ -4,8 +4,10 @@ mongoose = require("mongoose"),
 models = require("./database/models.js"),
 morgan = require("morgan"),
 passport = require("passport"),
-cors = require('cors');
+cors = require('cors'),
 dotenv = require("dotenv");
+
+mongoose.set('useFindAndModify', false);
 
 // ENV config for Environment Variables
 dotenv.config();
@@ -236,7 +238,7 @@ app.get("/documentation", (req, res) =>{
 
 
 // DYNAMIC PORT
-const port = process.env.port || 8080;
+const port = process.env.PORT || 8080;
 app.listen(port, "0.0.0.0", () => {
   console.log("The Server is running on Port: " + port)
 });
