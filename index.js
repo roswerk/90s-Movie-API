@@ -44,7 +44,7 @@ let auth = require("./middlewares/auth.js")(app);
 
 // Allow only requests from origins listed on allowedOrigins
 // List of allowed sites
-let allowedOrigings = ["http://localhost:8080", "http://testsite.com", "http://localhost:1234"];
+let allowedOrigings = ["http://localhost:8080","http://testsite.com", "http://localhost:1234"];
 // Call back function and return
 app.use(cors({
   origin: (origin, callback) =>{
