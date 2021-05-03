@@ -70,9 +70,9 @@ app.get("/", (req, res) => {
 
 //EndPoint 1 - RETURN A LIST OF ALL MOVIES
 
-app.get("/movies", passport.authenticate("jwt", {session: false}), (req, res) => {
+app.get("/movies", (req, res) => {
   Movie.find().then((movies) => {
-    res.status(200).json(movies);
+    res.status(201).json(movies);
   })
   .catch((err) =>{
     console.log(err);
