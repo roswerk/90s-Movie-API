@@ -39,7 +39,7 @@ module.exports = (router) => {
         return res.json({userObj, token});
 
 
-      // });
-    })(req, res);
+      });
+    // })(req, res);
   });
 }
