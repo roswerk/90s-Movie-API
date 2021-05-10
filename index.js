@@ -44,7 +44,7 @@ let auth = require("./middlewares/auth.js")(app);
 
 // Allow only requests from origins listed on allowedOrigins
 // List of allowed sites
-// let allowedOrigings = ["http://localhost:8080", "http://testsite.com", "http://localhost:1234"];
+let allowedOrigings = ["http://localhost:8080", "http://testsite.com", "http://localhost:1234"];
 
 
 // Call back function and return
@@ -62,7 +62,7 @@ let auth = require("./middlewares/auth.js")(app);
 
 // Provisory solution for client-side Task 3.4
 // Allow all origins
-// app.use(cors());
+app.use(cors());
 
 // Models
 const Movie = models.Movie;
