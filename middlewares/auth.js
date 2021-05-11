@@ -21,7 +21,7 @@ let generateJWTToken = (user) => {
 module.exports = (router) => {
   router.post("/login", (req, res) => {
 
-    passport.authenticate("local", {session: false}, (error, user, info) =>{
+    passport.authenticate("local", {session: false}, (error, user) =>{
       if(error || !user) {
         return res.status(401).json({
           message: "Something is not right",
@@ -33,8 +33,8 @@ module.exports = (router) => {
           res.send(error);
         }
         var userObj = user.toObject();
-        delete userObj.password;
-        delete userObj.birthDate;
+        // delete userObj.password;
+        // delete userObj.birthDate;
         let token = generateJWTToken(user.toJSON());
         return res.json({userObj, token});
 

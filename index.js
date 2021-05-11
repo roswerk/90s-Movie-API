@@ -1,11 +1,10 @@
 const express = require("express"),
-bodyParser = require("body-parser"),
-mongoose = require("mongoose"),
-models = require("./database/models.js"),
-morgan = require("morgan"),
-passport = require("passport"),
-cors = require('cors'),
-dotenv = require("dotenv");
+  bodyParser = require("body-parser"),
+  mongoose = require("mongoose"),
+  models = require("./database/models.js"),
+  morgan = require("morgan"),
+  passport = require("passport"),
+  cors = require('cors');
 
 mongoose.set('useFindAndModify', false);
 
@@ -44,25 +43,26 @@ let auth = require("./middlewares/auth.js")(app);
 
 // Allow only requests from origins listed on allowedOrigins
 // List of allowed sites
-let allowedOrigings = ["http://localhost:8080", "http://testsite.com", "http://localhost:1234"];
+let allowedOrigings = ["http://localhost:8080", "http://localhost:1234", "https://api90smovies.herokuapp.com/"];
 
 
 // Call back function and return
-// app.use(cors({
-//   origin: (origin, callback) =>{
-//     if(!origin) return callback(null, true);
-//     if(allowedOrigins.indexOf(origin) === -1){
-//       //If a specific origin is not found on the allowed origings list
-//       let message = "The CORS policy for this application doesnt allow acces from origin " + origin;
-//       return callback (new Error(message), false);
-//     }
-//     return callback (null, true)
-//   }
-// }));
+app.use(cors({
+  origin: (origin, callback) =>{
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      //If a specific origin is not found on the allowed origings list
+      let message = "The CORS policy for this application doesnt allow acces from origin " + origin;
+      return callback (new Error(message), false);
+    }
+    return callback (null, true)
+  }
+}));
+
 
 // Provisory solution for client-side Task 3.4
 // Allow all origins
-app.use(cors());
+// app.use(cors());
 
 // Models
 const Movie = models.Movie;
@@ -137,7 +137,7 @@ app.post("/users/add", [
     check('userName', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
     check('password', 'Password is required').not().isEmpty(),
     check('email', 'Email does not appear to be valid').isEmail()
-  ], passport.authenticate("jwt", {session: false}), (req, res) => {
+  ], (req, res) => {
 
     let errors = validationResult(req);
 
