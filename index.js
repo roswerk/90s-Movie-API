@@ -4,7 +4,8 @@ const express = require("express"),
   models = require("./database/models.js"),
   morgan = require("morgan"),
   passport = require("passport"),
-  cors = require('cors');
+  cors = require('cors'),
+  dotenv = require("dotenv");
 
 mongoose.set('useFindAndModify', false);
 
