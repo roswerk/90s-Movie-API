@@ -27,6 +27,7 @@ module.exports = (router) => {
           message: "Something is not right",
           user: user
         });
+
       }
       req.login(user, {session: false}, (error) => {
         if(error){
@@ -36,6 +37,7 @@ module.exports = (router) => {
         // delete userObj.password;
         // delete userObj.birthDate;
         let token = generateJWTToken(user.toJSON());
+        
         return res.json({userObj, token});
 
 
