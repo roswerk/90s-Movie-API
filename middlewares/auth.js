@@ -18,29 +18,41 @@ let generateJWTToken = (user) => {
 }
 
 //POST Login
+//   router.post("/login", (req, res) => {
+//
+//     passport.authenticate("local", {session: false}, (error, user) =>{
+//       if(error || !user) {
+//         return res.status(401).json({
+//           message: "Something is not right",
+//           user: user
+//         });
+//       }
+//       req.login(user, {session: false}, (error) => {
+//         if(error){
+//           res.send(error);
+//         }
+//         var userObj = user.toObject();
+//         // delete userObj.password;
+//         // delete userObj.birthDate;
+//         let token = generateJWTToken(user.toJSON());
+//         return res.json({userObj, token});
+//
+//
+//       });
+//     })(req, res);
+//   });
+// }
+
 module.exports = (router) => {
   router.post("/login", (req, res) => {
-
-    passport.authenticate("local", {session: true}, (error, user) =>{
-      if(error || !user) {
-        return res.status(401).json({
-          message: "Something is not right",
-          user: user
-        });
-      }
-      req.login(user, {session: true}, (error) => {
-        if(error){
-          res.send(error);
-        }
-        var userObj = user.toObject();
-        // delete userObj.password;
-        // delete userObj.birthDate;
-        let token = generateJWTToken(user.toJSON());
-        return res.json({userObj, token});
-        
-
-
-      });
-    })(req, res);
-  });
+  req.login(user, {session: true}, (error) => {
+    if(error){
+      res.send(error);
+    }
+    var userObj = user.toObject();
+    // delete userObj.password;
+    // delete userObj.birthDate;
+    let token = generateJWTToken(user.toJSON());
+    return res.json({userObj, token});
+})})
 }
