@@ -48,21 +48,21 @@ let allowedOrigings = ["http://localhost:8080", "http://testsite.com", "http://l
 
 
 // Call back function and return
-app.use(cors({
-  origin: (origin, callback) =>{
-    if(!origin) return callback(null, true);
-    if(allowedOrigins.indexOf(origin) === -1){
-      //If a specific origin is not found on the allowed origings list
-      let message = "The CORS policy for this application doesnt allow acces from origin " + origin;
-      return callback (new Error(message), false);
-    }
-    return callback (null, true)
-  }
-}));
+// app.use(cors({
+//   origin: (origin, callback) =>{
+//     if(!origin) return callback(null, true);
+//     if(allowedOrigins.indexOf(origin) === -1){
+//       //If a specific origin is not found on the allowed origings list
+//       let message = "The CORS policy for this application doesnt allow acces from origin " + origin;
+//       return callback (new Error(message), false);
+//     }
+//     return callback (null, true)
+//   }
+// }));
 
 // Provisory solution for client-side Task 3.4
 // Allow all origins
-// app.use(cors());
+app.use(cors());
 
 // Models
 const Movie = models.Movie;
