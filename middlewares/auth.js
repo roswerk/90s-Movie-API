@@ -47,6 +47,7 @@ module.exports = (router) => {
 module.exports = (router) => {
   router.get("/login/hey", (req, res) => {
     res.send("heyas")
+    console.log("heyas")
 
   }
 )};
