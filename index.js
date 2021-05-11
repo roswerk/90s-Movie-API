@@ -44,7 +44,7 @@ let auth = require("./middlewares/auth.js")(app);
 
 // Allow only requests from origins listed on allowedOrigins
 // List of allowed sites
-let allowedOrigings = ["http://localhost:8080", "http://localhost:1234", "https://api90smovies.herokuapp.com/"];
+let allowedOrigings = ["http://localhost:8080", "https://localhost:8080", "http://localhost:1234", "https://localhost:1234", "https://api90smovies.herokuapp.com/"];
 
 
 // Call back function and return
