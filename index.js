@@ -77,7 +77,7 @@ app.get("/", (req, res) => {
 
 //EndPoint 1 - RETURN A LIST OF ALL MOVIES
 
-app.get("/movies", (req, res) => {
+app.get("/movies", passport.authenticate("jwt", {session: false}), (req, res) => {
   Movie.find().then((movies) => {
     res.status(201).json(movies);
   })
