@@ -21,6 +21,13 @@ require("./helpers/passport.js")
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./public/swagger_output.json')
 
+// Creating APP
+const app = express();
+
+// Provisory solution for client-side Task 3.4
+// Allow all origins
+app.use(cors());
+
 // Linking LOCAL DataBase
 // mongoose.connect('mongodb://localhost:27017/Movies', {useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -31,8 +38,7 @@ useUnifiedTopology: true,
 useFindAndModify: false,
 });
 
-// Creating APP
-const app = express();
+
 
 app.use(bodyParser.json());
 
@@ -61,9 +67,7 @@ let allowedOrigings = ["http://localhost:8080", "https://localhost:8080", "http:
 // }));
 
 
-// Provisory solution for client-side Task 3.4
-// Allow all origins
-app.use(cors());
+
 
 // Models
 const Movie = models.Movie;
