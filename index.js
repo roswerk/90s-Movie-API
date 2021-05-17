@@ -161,8 +161,7 @@ User.findOne({userName: req.body.userName})
       userName: req.body.userName,
       password: hashedPassword,
       email: req.body.email,
-      birthDate: req.body.birthDate,
-      favoriteMovies: []
+      birthDate: req.body.birthDate
     })
     .then((user) => {res.status(200).json(user)
     })
