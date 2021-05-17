@@ -36,7 +36,7 @@ let usersSchema = mongoose.Schema({
     Required: (true, "You haven't added a email")
   },
   birthDate: Date,
-  favoriteMovies: {type: mongoose.ObjectId}
+  favoriteMovies:  [{type: mongoose.Schema.Types.ObjectId, ref:'Movie'}]
 });
 
 
