@@ -185,7 +185,7 @@ app.put("/user/:userName", passport.authenticate("jwt", {session: false}), (req,
   User.findOneAndUpdate({userName: req.params.userName},
     {$set:{
       userName: req.body.userName,
-      password: req.body.password,
+      password: hashedPassword,
       email: req.body.email,
       birthDate: req.body.birthDate
     }
