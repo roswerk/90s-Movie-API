@@ -181,7 +181,7 @@ User.findOne({userName: req.body.userName})
 
 //EndPoint 6 - ALLOW USERS TO UPDATE THEIR INFO
 
-app.put("/user/:userName", passport.authenticate("jwt", {session: false}), [
+app.put("/user/:userName", [
   check('userName', 'Username is required').isLength({min: 5}),
   check('userName', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
   check('password', 'Password is required').not().isEmpty(),
